@@ -1,0 +1,98 @@
+﻿@model HotelManagement.Models.SignUpUserModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<h2>
+    <a asp-action="SignIn" asp-controller="LoginAndRegister" role="form">Zaloguj się</a>
+</h2>
+<form method="post" asp-controller="LoginAndRegister" asp-action="SignUp" role="form">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group row">
+        <h2 class="text-info pt-3">Zarejestruj się</h2>
+    </div>
+
+    <!--Label i input dla first name-->
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input class="form-control" asp-for="FirstName" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <!--Last name-->
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input class="form-control" asp-for="LastName" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <!--Email-->
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <!--Email x2-->
+    @*<div class="form-group">
+            <label asp-for="RetypeEmail"></label>
+            <input class="form-control" asp-for="RetypeEmail" />
+            <span asp-validation-for="RetypeEmail" class="text-danger"></span>
+        </div>*@
+
+    <!--City-->
+    <div class="form-group">
+        <label asp-for="City"></label>
+        <input class="form-control" asp-for="City" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
+    <!--Address-->
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input class="form-control" asp-for="Address" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <!--Password-->
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input class="form-control" asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <!--Password confirm-->
+    <div class="form-group">
+        <label asp-for="ConfirmPassword"></label>
+        <input class="form-control" asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <!--Button-->
+    <div class="form-row">
+        <div class="col-3">
+            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        </div>
+
+    </div>
+
+
+    <!--
+    <div class="form-group">
+        <label>Login</label>
+        <input class="form-control" placeholder="Wpisz login" type="text">
+    </div>
+    <div class="form-group">
+        <label>Hasło</label>
+        <input type="password" class="form-control" placeholder="Wpisz hasło">
+    </div>
+    <button type="submit" class="btn btn-primary">Zarejestruj się</button>
+        -->
+</form>
+
+<!--Dodawanie walidacji po stronie klienta-->
+@section Scripts
+{
+    @{
+        <Partial name="_ValidationScriptsPartial.cshtml" />
+    }
+}
