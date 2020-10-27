@@ -74,7 +74,7 @@ namespace HotelManagement
                 {
                     endpoints.MapControllerRoute(
                         name: "default",
-                        pattern: "{controller=Room}/{action=Index}/{id?}");
+                        pattern: "{controller=Room}/{action=Home}/{id?}");
                     endpoints.MapRazorPages();
                 });
         }

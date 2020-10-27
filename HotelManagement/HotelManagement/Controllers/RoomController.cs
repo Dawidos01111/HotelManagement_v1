@@ -64,6 +64,7 @@ namespace HotelManagement.Controllers
            
             if (ModelState.IsValid)
             {
+
                 //if (roomsObj.ImageFile != null)
                 //{
                 //    string folder = "Image/NewRoom";
@@ -73,10 +74,88 @@ namespace HotelManagement.Controllers
                 //}
 
                 _applicationDbContext.rooms2s.Add(roomsObj);
-                _applicationDbContext.SaveChangesAsync();
+                _applicationDbContext.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
             return View(roomsObj);
+        }
+
+        public IActionResult Home()
+        {
+            IEnumerable<Rooms2> objList = _applicationDbContext.rooms2s;
+            //IEnumerable<BookingStatus> objListBooking = _applicationDbContext.bookingStatuses;
+            //ViewBag.Message = "List";
+            //RoomsAndBooking roomwAndBooking = new RoomsAndBooking();
+            //roomwAndBooking.bookingStatusesVM = (IEnumerable<BookingStatus>)objList;
+            //roomwAndBooking.rooms2VM = (IEnumerable<Rooms2>)objListBooking;
+
+
+
+
+            return View(objList);
+            
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            //Uzyskanie danych z bazy danych o konkretnym id
+            var RoomsFromDb = _applicationDbContext.rooms2s.Find(id);
+            if (RoomsFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(RoomsFromDb);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Rooms2 rooms2Obj)
+        {
+            if(ModelState.IsValid)
+            {
+                _applicationDbContext.rooms2s.Update(rooms2Obj);
+                _applicationDbContext.SaveChanges();
+                return RedirectToAction("Home");
+            }
+            return View(rooms2Obj);
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            //Uzyskanie danych z bazy danych o konkretnym id
+            var RoomsFromDb = _applicationDbContext.rooms2s.Find(id);
+            if (RoomsFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(RoomsFromDb);
+        }
+
+        //POST - Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? id)
+        {
+            var RoomsFromDb = _applicationDbContext.rooms2s.Find(id);
+            if (RoomsFromDb == null)
+            {
+                return NotFound();
+            }
+            _applicationDbContext.rooms2s.Remove(RoomsFromDb);
+            _applicationDbContext.SaveChanges();
+            return RedirectToAction("Home");
+
+
         }
     }
 }

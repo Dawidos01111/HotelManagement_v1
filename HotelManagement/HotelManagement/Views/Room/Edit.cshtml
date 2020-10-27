@@ -1,16 +1,9 @@
-﻿@model HotelManagement.Models.Rooms2;
-@{
-        ViewData["Title"] = "AddRoom";
-    }
+﻿@model HotelManagement.Models.Rooms2
 
-<div class="text-center">
-    <h1 class="display-4">Add new Room</h1>
-</div>
-
-<form method="post" asp-action="AddRoom">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form method="post">
+    <input asp-for="RoomId" hidden />
     <div class="form-group row">
-        <h2 class="text-info pt-3">Add room</h2>
+        <h2 class="text-info pt-3">Edit room</h2>
     </div>
 
     <div class="form-group">
@@ -25,21 +18,6 @@
         <span asp-validation-for="RoomPrice" class="text-danger"></span>
     </div>
 
-
-
-    <div class="form-group">
-        <label asp-for="BookingStatusId"></label>
-        @Html.DropDownListFor(model => model.BookingStatusId, @Model.ListOfBookingStatus, "Please select")
-        <span asp-validation-for="BookingStatusId" class="text-danger"></span>
-    </div>
-
-
-    @*<div class="form-group">
-            <label asp-for="RoomTypeId"></label>
-            @Html.DropDownListFor(model => model.RoomTypeId, Model.ListRoomType ?? new List<SelectListItem>(), "Please select")
-            <span asp-validation-for="RoomTypeId" class="text-danger"></span>
-        </div>*@
-
     <div class="form-group">
         <label asp-for="RoomCapacity"></label>
         <input class="form-control" asp-for="RoomCapacity" />
@@ -51,14 +29,22 @@
         <input class="form-control" asp-for="RoomDescription" />
         <span asp-validation-for="RoomDescription" class="text-danger"></span>
     </div>
+
     @*Przyciski*@
     <div class="form-row col-md-6">
         <div class="col-3">
-            <button type="submit" class="btn btn-primary btn-block">Add room</button>
+            <button type="submit" class="btn btn-primary btn-block">Update</button>
         </div>
 
         <div class="col col-md-6">
-            <a asp-action="Index" class="btn btn-success btn-block">Back</a>
+            <a asp-action="Home" class="btn btn-success btn-block">Back</a>
         </div>
     </div>
 </form>
+<!--Dodawanie walidacji po stronie klienta-->
+@section Scripts
+{
+    @{
+        <Partial name="_ValidationScriptsPartial.cshtml" />
+    }
+} 

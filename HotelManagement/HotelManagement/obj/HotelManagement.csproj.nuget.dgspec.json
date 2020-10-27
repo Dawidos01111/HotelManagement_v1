@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\source\\repos\\HotelManagement\\HotelManagement\\HotelManagement\\HotelManagement.csproj": {}
+    "D:\\GIT\\HotelManagement_v1\\HotelManagement_v1\\HotelManagement\\HotelManagement\\HotelManagement.csproj": {}
   },
   "projects": {
-    "D:\\source\\repos\\HotelManagement\\HotelManagement\\HotelManagement\\HotelManagement.csproj": {
+    "D:\\GIT\\HotelManagement_v1\\HotelManagement_v1\\HotelManagement\\HotelManagement\\HotelManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\source\\repos\\HotelManagement\\HotelManagement\\HotelManagement\\HotelManagement.csproj",
+        "projectUniqueName": "D:\\GIT\\HotelManagement_v1\\HotelManagement_v1\\HotelManagement\\HotelManagement\\HotelManagement.csproj",
         "projectName": "HotelManagement",
-        "projectPath": "D:\\source\\repos\\HotelManagement\\HotelManagement\\HotelManagement\\HotelManagement.csproj",
+        "projectPath": "D:\\GIT\\HotelManagement_v1\\HotelManagement_v1\\HotelManagement\\HotelManagement\\HotelManagement.csproj",
         "packagesPath": "C:\\Users\\spryc\\.nuget\\packages\\",
-        "outputPath": "D:\\source\\repos\\HotelManagement\\HotelManagement\\HotelManagement\\obj\\",
+        "outputPath": "D:\\GIT\\HotelManagement_v1\\HotelManagement_v1\\HotelManagement\\HotelManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\spryc\\AppData\\Roaming\\NuGet\\NuGet.Config",
